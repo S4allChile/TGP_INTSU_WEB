@@ -1,0 +1,43 @@
+body {
+    background-color: #4c4c4c;
+}
+body {
+    color: #444444;
+    font-family: Roboto,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    opacity: 1;
+    transition: opacity 0.24s ease-in-out 0s;
+    visibility: visible;
+}
+.tab-content .tab-pane {
+  display: block;
+  height:0;
+}
+
+.tab-content .active {
+  height:auto;
+}
+.parvez_custom_one {
+  background-color: #ececec;
+  margin-left: 0;
+  margin-right: 0;
+}
+.parvez_custom_two {
+  padding-left: 0;
+  padding-right: 0;
+}
+.front-page .phm_row.home-brands.parvez_custom_three {
+  border-top: 1px solid #e5e5e5;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+.tp-caption.text1-1,.text1-1{font-size:80px;line-height:95px;font-weight:700;font-family:Raleway;color:rgb(255,255,255);text-decoration:none;padding:0px;background-color:transparent;border-width:0px;border-color:rgb(255,255,255);border-style:none;text-shadow:none;margin:0px;text-transform:uppercase;letter-spacing:3px}.tp-caption.text1-2,.text1-2{font-size:20px;line-height:30px;font-weight:500;font-family:Raleway;color:rgb(255,255,255);text-decoration:none;padding:0px;background-color:transparent;border-width:0px;border-color:rgb(255,255,255);border-style:none}.tp-caption.text1-3,.text1-3{font-size:20px;line-height:50px;font-weight:400;font-family:Raleway;color:rgb(0,0,0);text-decoration:none;padding:0px 15px;background-color:rgb(255,255,255);border-width:1px;border-color:rgb(0,0,0);border-style:solid;text-shadow:none;margin:0px;letter-spacing:0px;text-transform:uppercase}
+.width100{width:100%;}
+.width80{width:80%;}
+.width86{width:86.6%;}
+.width60{width:60%;}
+.width70{width:70%;}
