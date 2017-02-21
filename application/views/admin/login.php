@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="<?= base_url(); ?>/pagina/css/login.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>pagina/css/login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
           <hgroup>
