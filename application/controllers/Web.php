@@ -31,9 +31,14 @@ class Web extends CI_Controller {
 		//******************************************************************************
 		// PAGINA PRINCIPAL
 		//******************************************************************************
+                $destacado = $this->web_DAO->productosDestacados();
+                if(empty($destacado)){
+                    $destacado = 1;
+                }
                 
                 $datosWeb = array(
-                    'banner' => $this->web_DAO->cargaBannerPrincipal() 
+                    'banner' => $this->web_DAO->cargaBannerPrincipal(),
+                    'destacados' => $destacado
                 );
 		$this->load->view('public/web',$datosWeb);
 

@@ -81,7 +81,9 @@
 														<div class="bootexpert columns-1">
 															<div class="shop-products row grid-view">
                                                                                                                             
-                                                                                                                            
+                                                                                                                                <?php
+                                                                                                                                $desta
+                                                                                                                                ?>
 																<div class="first last item-col col-xs-12 col-sm-12">
 																	<div class="product-wrapper">
 																		<div class="list-col4">

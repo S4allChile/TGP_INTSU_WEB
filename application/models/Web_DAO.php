@@ -22,6 +22,7 @@ class Web_DAO extends CI_Model {
         $this->db->FROM('categoria');
         $this->db->WHERE('categoria_web',1);
         $sql = $this->db->get();
+        
         return $sql->result();
     }
     
@@ -30,6 +31,7 @@ class Web_DAO extends CI_Model {
         $this->db->FROM('sub_categoria');
         $this->db->WHERE('sub_categoria_web',1);
         $sql = $this->db->get();
+        
         return $sql->result();
     }
     
@@ -38,7 +40,20 @@ class Web_DAO extends CI_Model {
         $this->db->FROM('banners');
         $this->db->WHERE('activo',1);
         $sql = $this->db->get();
+        
         return $sql->result();
+    }
+    
+    public function productosDestacados(){
+        
+        $this->db->SELECT('*');
+        $this->db->FROM('producto');
+        $this->db->WHERE('activo_web',1);
+        $this->db->WHERE('destacado',1);
+        $sql = $this->db->get();
+        
+        return $sql->result();
+        
     }
     
     
