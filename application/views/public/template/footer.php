@@ -1,5 +1,9 @@
 <!-- Footer -->
 <div class="footer">
+ 
+ <?php
+ if($encabezadoPie){
+ ?>
   <div class="container">
     <div class="footer-top">
       <div class="row">
@@ -36,6 +40,9 @@
       </div>
     </div>
   </div>
+  
+ <?php }else { echo "<hr/>";}?>  
+    
   <!-- End Footer Top -->
   <div class="container">
     <div class="footer-middle">
@@ -97,25 +104,11 @@
             <h3 class="widget-title"><span>Horarios de Atencion</span></h3>
             <ul>
               <li class="first">
-                <span class="day">Lunes - Viernes</span><span class="time">9.00 - 18.00</span>
+                <span class="day">Lunes - Viernes</span><span class="time">9:00 - 18:00 Hrs</span>
               </li>
             </ul>
           </div>
-          <a href="">
-            <img src="<?= base_url(); ?>pagina/images/fashion/brand/visa.png" alt="visa" />
-          </a>
-          <a href="">
-            <img src="<?= base_url(); ?>pagina/images/fashion/brand/paypal.png" alt="paypal" />
-          </a>
-          <a href="">
-            <img src="<?= base_url(); ?>pagina/images/fashion/brand/master_card.png" alt="master_card" />
-          </a>
-          <a href="">
-            <img src="<?= base_url(); ?>pagina/images/fashion/brand/discover.png" alt="discover" />
-          </a>
-          <a href="">
-            <img src="<?= base_url(); ?>pagina/images/fashion/brand/card4.png" alt="card4" />
-          </a>
+          
         </div>
       </div>
     </div>
