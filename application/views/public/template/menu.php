@@ -18,7 +18,7 @@
 													
 
 													<ul>
-                                                                                                            <li class="active-menu-item first default_dropdown drop_to_right children-menu">
+                                                                                                            <li class="first default_dropdown drop_to_right children-menu" id="0">
 														<a href="<?= base_url(); ?>" class="item_link">
 															<span class="link_content">
 																<span class="link_text">Inicio</span>
@@ -30,7 +30,7 @@
                                                                                                             foreach ($menu AS $valorMenu){
                                                                                                                 
                                                                                                             ?>
-														<li class="default_dropdown drop_to_right children-menu">
+                                                                                                            <li class="default_dropdown drop_to_right children-menu" id="<?= $valorMenu->id_categoria; ?>">
 															<a href="#" class="item_link">
 																<span class="link_content">
 																	<span class="link_text"><?= $valorMenu->descripcion_categoria; ?></span>
@@ -44,7 +44,7 @@
                                                                                                                                 {
                                                                                                                             ?>
 																<li class="default_dropdown drop_to_right children-menu">
-																	<a href="<?= base_url(); ?>categoria/<?= $sub->id_sub_categoria; ?>" class="item_link ">
+                                                                                                                                    <a href="<?= base_url(); ?>index.php/web/categoria/<?= encriptarUrl($sub->id_sub_categoria); ?>" class="item_link ">
 																		<span class="link_content">
 																			<span class="link_text"><?= $sub->nombre_sub_categoria; ?></span>
 																		</span>
