@@ -56,5 +56,78 @@ class Web_DAO extends CI_Model {
         
     }
     
+    //**************************************************************************
+    /**
+     * CONSULTA LOS DATOS DE UNA SUB CATEGORIA X ID
+     * 
+     * 
+     * @param type INT       $idSubCategoria
+     */
+    //**************************************************************************
+    public function consultaSubCategoria($idSubCategoria){
+        $this->db->SELECT('*');
+        $this->db->FROM('sub_categoria');
+        $this->db->WHERE('id_sub_categoria',$idSubCategoria);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+        
+    }
+    
+    //**************************************************************************
+    /**
+     * CONSULTA LOS DATOS DE UNA SUB CATEGORIA X ID
+     * 
+     * 
+     * @param type INT       $idSubCategoria
+     */
+    //**************************************************************************
+    public function consultaCategoria($idCategoria){
+        $this->db->SELECT('*');
+        $this->db->FROM('categoria');
+        $this->db->WHERE('id_categoria',$idCategoria);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+        
+    }
+    
+    //**************************************************************************
+    /**
+     * TRAE TODOS LOS PRODUCTOS SEGUN SU SUBCATEGORIA
+     * 
+     * 
+     * @param type INT       $idSubCategoria
+     */
+    //**************************************************************************
+    public function productosSubCategoria($idSubCategoria){
+        $this->db->SELECT('*');
+        $this->db->FROM('producto_imagen_principal');
+        $this->db->WHERE('id_sub_categoria',$idSubCategoria);
+        $sql = $this->db->get();
+        
+        return $sql->result();
+    }
+    
+    
+    //**************************************************************************
+    /**
+     * Busca la imagen principal de un producto
+     * 
+     * 
+     * @param type INT       $idProducto
+     */
+    //**************************************************************************
+    public function buscaImagenPrincipal($idProducto){
+        $this->db->SELECT('*');
+        $this->db->FROM('imagen_producto');
+        $this->db->WHERE('activo',1);
+        $this->db->WHERE('principal',1);
+        $this->db->WHERE('id_producto',$idProducto);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+        
+    }
     
 }
