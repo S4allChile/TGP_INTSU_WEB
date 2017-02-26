@@ -23,5 +23,25 @@
 <script type="text/javascript" src="<?= base_url(); ?>pagina/lib/prettyPhoto/js/jquery.prettyPhoto.js"></script>
 <!-- Saharan js -->
     <script type="text/javascript" src="<?= base_url(); ?>pagina/js/saharan.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            var marca = <?= $marcaMenu; ?>;
+            if(marca == "0"){
+                
+                $('#0').addClass('active-menu-item');
+            }else{
+                
+                $('#<?= $marcaMenu; ?>').addClass('active-menu-item');
+            }
+            
+            
+            
+            
+            
+            
+        });
+    </script>
+    
 </body>
 </html>
