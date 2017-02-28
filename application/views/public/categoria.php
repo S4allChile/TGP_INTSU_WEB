@@ -30,7 +30,7 @@
                                                                 <div class="entry-summary">
                                                                         <p><?= $producto->descripcion_detallada; ?> </p>
                                                                 </div>
-                                                                <a class="readmore" href="single-blog.html">Mas informacion<i class="fa fa-arrow-right"></i></a>
+                                                                <a class="readmore" href="<?= base_url(); ?>index.php/web/detalleProducto/<?= encriptarUrl($producto->id_producto); ?>">Mas informacion<i class="fa fa-arrow-right"></i></a>
                                                         </div>
                                                 </div>
                                         </article>

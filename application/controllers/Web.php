@@ -42,6 +42,7 @@ class Web extends CI_Controller {
                 $datosWeb = array(
                     'banner' => $this->web_DAO->cargaBannerPrincipal(),
                     'destacados' => $destacado
+                    
                 );
 		$this->load->view('public/web',$datosWeb);
 
@@ -108,6 +109,78 @@ class Web extends CI_Controller {
                     'productos' => $productos
                 );
 		 $this->load->view('public/categoria',$datosWeb);
+
+		//******************************************************************************
+                 $datoPie = array(
+                    'encabezadoPie' => FALSE
+                );
+		$this->load->view('public/template/footer',$datoPie);
+		//******************************************************************************
+		$this->load->view('public/modales/modalWeb');
+		//******************************************************************************
+                $datosJs = array(
+                    'marcaMenu' => $categoria->id_categoria
+                );
+		$this->load->view('public/js/webJs',$datosJs);
+		//******************************************************************************
+        }
+        
+        public function detalleProducto(){
+            //Capturo el segmento de la url para reconocer cual es la categoria que 
+        //se esta solicitando
+            $seg = $this->uri->segment(3);
+             //desencripto la variable
+            $idProducto = desencriptarUrl($seg);
+            
+            //Traigo los datos del producto seleccionado
+            $prod = $this->web_DAO->buscaProducto($idProducto);
+            
+            //Obtengo la subcategoria
+            $idSubCategoria = $prod->id_sub_categoria;
+            
+            //traigo los datos de la subcategoria
+            $subCategoria = $this->web_DAO->consultaSubCategoria($idSubCategoria);
+            
+            //Traigo los datos de la categoria
+            $categoria = $this->web_DAO->consultaCategoria($subCategoria->id_categoria);
+            
+            //Busco las imagenes del producto
+            $imgProd = $this->web_DAO->buscaImagenesProducto($idProducto);
+            
+            //Busco los productos relacionados
+            $prodRelacionados = $this->web_DAO->productosRelacionados($idSubCategoria);
+            
+            //******************************************************************************
+		$dataHead = array(
+			'titulo' => 'Intsu SPA | Herramientas y Mauqinarias para la construccion'
+		);
+		$this->load->view('public/template/head',$dataHead);
+		//******************************************************************************
+		$this->load->view('public/template/topBar');
+		//******************************************************************************
+		$this->load->view('public/template/logo');
+		//******************************************************************************
+		$this->load->view('public/template/carro');
+		//******************************************************************************
+		$datoMenu = array(
+			'menu' => $this->web_DAO->cargaMenu(),
+                        'subMenu' => $this->web_DAO->cargaSubMenu()
+		);
+		$this->load->view('public/template/menu',$datoMenu);
+		//******************************************************************************
+		// PAGINA PRINCIPAL
+		//******************************************************************************
+        
+                
+                
+                $datosWeb = array(
+                    'producto' => $prod,
+                    'imagenes' => $imgProd,
+                    'relacionados' => $prodRelacionados,
+                    'categoria' => $categoria,
+                    'subCategoria' => $subCategoria
+                );
+		 $this->load->view('public/detalleProducto',$datosWeb);
 
 		//******************************************************************************
                  $datoPie = array(

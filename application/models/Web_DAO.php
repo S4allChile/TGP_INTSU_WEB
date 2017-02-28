@@ -47,7 +47,7 @@ class Web_DAO extends CI_Model {
     public function productosDestacados(){
         
         $this->db->SELECT('*');
-        $this->db->FROM('producto');
+        $this->db->FROM('producto_imagen_principal');
         $this->db->WHERE('activo_web',1);
         $this->db->WHERE('destacado',1);
         $sql = $this->db->get();
@@ -127,6 +127,41 @@ class Web_DAO extends CI_Model {
         $sql = $this->db->get();
         
         return $sql->row();
+        
+    }
+    
+    public function buscaProducto($idProducto){
+        
+        $this->db->SELECT('*');
+        $this->db->FROM('producto');
+        $this->db->WHERE('activo_web',1);
+        $this->db->WHERE('id_producto',$idProducto);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+    }
+    
+    public function buscaImagenesProducto($idProducto){
+        
+        $this->db->SELECT('*');
+        $this->db->FROM('imagen_producto');
+        $this->db->WHERE('activo',1);
+        $this->db->WHERE('id_producto',$idProducto);
+        $sql = $this->db->get();
+        
+        return $sql->result();
+    }
+    
+    public function productosRelacionados($subCategoria){
+        
+        $this->db->SELECT('*');
+        $this->db->FROM('producto');
+        $this->db->WHERE('activo_web',1);
+        $this->db->WHERE('id_sub_categoria',$subCategoria);
+        $this->db->LIMIT(4);
+        $sql = $this->db->get();
+        
+        return $sql->result();
         
     }
     

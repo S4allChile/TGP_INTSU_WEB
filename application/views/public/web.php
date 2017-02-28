@@ -82,62 +82,58 @@
 															<div class="shop-products row grid-view">
                                                                                                                             
                                                                                                                                 <?php
-                                                                                                                                $desta
+                                                                                                                                foreach ($destacados AS $destacado){
+                                                                                                                                    
                                                                                                                                 ?>
 																<div class="first last item-col col-xs-12 col-sm-12">
 																	<div class="product-wrapper">
 																		<div class="list-col4">
 																			<div class="product-image">
 																				<a href="" title="Vulputate justo">
-																					<img src="<?= base_url(); ?>pagina/images/tienda/productos/1.jpg" class="primary_image" alt="1" />
+																					<img src="<?= base_url(); ?>pagina/images/tienda/productos/<?= $destacado->nombre_archivo; ?>" class="primary_image" alt="1" />
 																					<img src="<?= base_url(); ?>pagina/images/tienda/productos/2.jpg" class="secondary_image" alt="2" />
 																				</a>
-																				<div class="ratings">
-																					<div class="star-rating" title="Rated 5.00 out of 5">
-																						<span class="width100">
-																							<strong class="rating">5.00</strong> out of 5
-																						</span>
-																					</div>
-																				</div>
+																				
 																				<div class="add-to-cart1">
 																					<p class="product bootexpert add_to_cart_inline ">
-																						<a href="" class="button" >Add to cart</a>
+																						<a href="" class="button" >Cotizar</a>
 																					</p>
 																				</div>
 																				<div class="actions1 clearfix">
 																					<div class="action-buttons">
 																						<div class="quickviewbtn">
-																							<a class="detail-link quickview" href="" title="Vulputate justo" data-target="#productModal" data-toggle="modal" >Quick View</a>
+																							<a class="detail-link quickview" href="" title="Vulputate justo" data-target="#productModal" data-toggle="modal" >Vista Rapida</a>
 																						</div>
-																						<div class="add-to-links">
-																							<div class="yith-wcwl-add-to-wishlist add-to-wishlist-317">
-																								<div>
-																									<a href="" class="add_to_wishlist">Add to Wishlist</a>
-																								</div>
-																								<div class="clear"></div>
-
-																							</div>
-																							<div class="clear"></div>
-																							<div class="bootexpert product compare-button">
-																								<a href="" class="compare button">Compare</a>
-																							</div>
-																						</div>
+													
 																					</div>
 																				</div>
 																			</div>
 																		</div>
 																		<div class="list-col8">
 																			<div class="gridview">
-																				<h2 class="product-name"><a href="<?= base_url(); ?>pagina/single-products-3.html">Vulputate justo</a></h2>
+																				<h2 class="product-name"><a href="<?= base_url(); ?>pagina/single-products-3.html">Precio Venta: </a></h2>
 																				<div class="price-box">
-																					<span class="amount">&pound;90.00</span>
+																					<span class="amount">
+                                                                                                                                                                            &dollar; <?php 
+                                                                                                                                                                            if($destacado->oferta_especial_web == 0){
+                                                                                                                                                                                
+                                                                                                                                                                                 
+                                                                                                                                                                                echo number_format($destacado->precio_venta,0,',','.');
+                                                                                                                                                                                
+                                                                                                                                                                            }else{
+                                                                                                                                                                               
+                                                                                                                                                                                echo number_format($destacado->oferta_especial_web,0,',','.');
+                                                                                                                                                                                
+                                                                                                                                                                            }
+                                                                                                                                                                                ?>
+                                                                                                                                                                        </span>
 																				</div>
 																			</div>
 																		</div>
 																		<div class="clearfix"></div>
 																	</div>
 																</div>
-                                                                                                                            
+                                                                                                                                <?php } ?>
                                                                                                                             
                                                                                                                             
 					
@@ -154,7 +150,7 @@
 										</div>
 									</div>
 								</div>
-
+                                                                <!--
 								<div class="phm_row hasteck_row phm_row-fluid product-style2">
 									<div class="row-container">
 										<div class="product-style2 parvez_column parvez_column_container parvez_col-sm-3">
@@ -501,6 +497,7 @@
 										</div>
 									</div>
 								</div>
+                                                            -->
 							</div>
 						</article>
 					</div>
