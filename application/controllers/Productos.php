@@ -37,7 +37,8 @@ class Productos extends CI_Controller {
             $this->load->view('admin/template/head');
             $this->load->view('admin/template/menu');
             $datos = array(
-                'productos' => $this->productos_DAO->listaProductos()
+                'productos' => $this->productos_DAO->listaProductos(),
+                'categorias' => $this->productos_DAO->listaCategoria()
             );
             $this->load->view('admin/nuevoProducto',$datos);
        // }
@@ -47,4 +48,6 @@ class Productos extends CI_Controller {
         
         
     }
+    
+    
 }

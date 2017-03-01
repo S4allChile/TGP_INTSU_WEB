@@ -24,4 +24,22 @@ class Productos_DAO extends CI_Model {
         
         return $sql->result();
     }
+    
+    public function listaCategoria(){
+        $this->db->SELECT('*');
+        $this->db->FROM('categoria');
+        $sql = $this->db->get();
+        
+        return $sql->result();
+        
+    }
+    
+    public function listaSubCategoria($idCategoria){
+        $this->db->SELECT('*');
+        $this->db->FROM('sub_categoria');
+        $this->db->WHERE('id_categoria',$idCategoria);
+        $sql = $this->db->get();
+        
+        return $sql->result();
+    }
 }
