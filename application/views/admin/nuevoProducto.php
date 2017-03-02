@@ -86,6 +86,90 @@
                                     </div>
                                 </div>
                                 
+                                <div class="row">
+                                    <div class="col-md-6">
+                                
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <div class="form-group">
+                                                <label for="exampleInputAmount">Precio Venta</label>
+                                                <div class="input-group">
+                                                  <div class="input-group-addon">$</div>
+                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <div class="form-group">
+                                                <label for="exampleInputAmount">Oferta Especial</label>
+                                                <div class="input-group">
+                                                  <div class="input-group-addon">$</div>
+                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <div class="form-group">
+                                                <label for="exampleInputAmount">Arriendo Dia</label>
+                                                <div class="input-group">
+                                                  <div class="input-group-addon">$</div>
+                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <div class="form-group">
+                                                <label for="exampleInputAmount">Arriendo Mes</label>
+                                                <div class="input-group">
+                                                  <div class="input-group-addon">$</div>
+                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <div class="form-group">
+                                                <label for="exampleInputAmount">Precio Garantia</label>
+                                                <div class="input-group">
+                                                  <div class="input-group-addon">$</div>
+                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="control-label">Imagen Principal</label>
+                                        <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        <div class="form-group">
+                                            <label>Descripcion detallada</label>
+                                            <textarea class="form-control" rows="10" id="descDetallada"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar</button>
+                                <button type="submit" class="btn btn-success" value="Guardar"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar</button>
                                 
                                 
                             </form>
@@ -105,6 +189,8 @@
         
         <script src="<?= base_url(); ?>pagina/js/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="<?= base_url(); ?>pagina/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= base_url(); ?>pagina/lib/bootstrap3-wysiwyg/dist/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <script src="<?= base_url(); ?>pagina/lib/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
                 $('#categoria').change(function(){
@@ -114,6 +200,8 @@
                     $('#subCategoria').removeAttr('disabled');
                     
                 });
+                
+                $('#descDetallada').wysihtml5();
             });
         </script>
         
