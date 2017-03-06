@@ -11,20 +11,19 @@
                     <h3 class="page-header">Productos <small>Creacion de producto</small></h3>
                     <div class="row">
                         <div class="col-md-12">
-                            <form>
-                                
+                            <form method="get" action="#" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-xs-4">
                                         <div class="form-group">
                                             <label for="input">Codigo</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Codigo" >
+                                            <input type="text" name="codigo" class="form-control" id="codigo" placeholder="Codigo" >
                                         </div>
                                     </div>
 
                                     <div class="col-xs-4">
                                         <div class="form-group">
                                             <label for="input">Fecha</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" align="right" value="<?= date('d-m-Y'); ?>" disabled="disabled">
+                                            <input type="text" class="form-control" id="fecha" align="right" value="<?= date('d-m-Y'); ?>" readonly="readonly">
                                         </div>
                                     </div>
                                 </div>
@@ -33,14 +32,14 @@
                                     <div class="col-xs-6">
                                         <div class="form-group">
                                             <label for="input">Descripcion</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Descripcion">
+                                            <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Descripcion">
                                         </div>
                                     </div>
 
                                     <div class="col-xs-1">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="" checked="checked" />
+                                                <input type="checkbox" name="activo" value="on" checked="checked" />
                                               Activo
                                             </label>
                                         </div>
@@ -48,7 +47,7 @@
                                     <div class="col-xs-1">
                                         <div class="checkbox">
                                             <label>
-                                              <input type="checkbox" value="">
+                                                <input type="checkbox" value="on" name="destacado">
                                               Destacado
                                             </label>
                                         </div>
@@ -62,7 +61,7 @@
                                     <div class="col-xs-6">
                                         <div class="form-group">
                                             <label for="input">Categoria</label>
-                                            <select class="form-control" id="categoria">
+                                            <select class="form-control" id="categoria" name="categoria">
                                                   <option value="0"> Seleccione Categoria</option>
                                                   <?php
                                                   foreach($categorias AS $categoria){
@@ -77,7 +76,7 @@
                                     <div class="col-xs-6">
                                         <div class="form-group">
                                             <label for="input">Sub Categoria</label>
-                                            <select class="form-control" id="subCategoria" disabled="disabled">
+                                            <select class="form-control" id="subCategoria" name="subcategoria" disabled="disabled">
                                                   <option value="0"> Seleccione Categoria</option>
 
                                             </select>
@@ -95,7 +94,7 @@
                                                 <label for="exampleInputAmount">Precio Venta</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon">$</div>
-                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                  <input type="text" name="precioVenta" class="form-control" id="precioVenta" onkeyup="formato_numero(this)" onchange="formato_numero(this)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +107,7 @@
                                                 <label for="exampleInputAmount">Oferta Especial</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon">$</div>
-                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                  <input type="text" name="ofertaEspecial" class="form-control" id="ofertaEspecial" onkeyup="formato_numero(this)" onchange="formato_numero(this)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +120,7 @@
                                                 <label for="exampleInputAmount">Arriendo Dia</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon">$</div>
-                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                  <input type="text" name="arriendoDia" class="form-control" id="arriendoDia" onkeyup="formato_numero(this)" onchange="formato_numero(this)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +132,7 @@
                                                 <label for="exampleInputAmount">Arriendo Mes</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon">$</div>
-                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                  <input type="text" name="arriendoMes" class="form-control" id="arriendoMes" onkeyup="formato_numero(this)" onchange="formato_numero(this)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +144,7 @@
                                                 <label for="exampleInputAmount">Precio Garantia</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon">$</div>
-                                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" />
+                                                  <input type="text" name="valorGarantia" class="form-control" id="exampleInputAmount" onkeyup="formato_numero(this)" onchange="formato_numero(this)"  />
                                                 </div>
                                             </div>
                                         </div>
@@ -154,7 +153,7 @@
                                     
                                     <div class="col-md-6">
                                         <label class="control-label">Imagen Principal</label>
-                                        <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                                        <input id="input-2" name="imagenP" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
                                     </div>
                                     
                                 </div>
@@ -163,7 +162,7 @@
                                     <div class="col-xs-10">
                                         <div class="form-group">
                                             <label>Descripcion detallada</label>
-                                            <textarea class="form-control" rows="10" id="descDetallada"></textarea>
+                                            <textarea class="form-control textarea" name="descDetallada" rows="10" id="descDetallada"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -193,6 +192,8 @@
         <script src="<?= base_url(); ?>pagina/lib/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
+                $('.textarea').wysihtml5();
+                 
                 $('#categoria').change(function(){
                     var id = $(this).find(':selected').val();
                     
@@ -201,7 +202,7 @@
                     
                 });
                 
-                $('#descDetallada').wysihtml5();
+              
             });
         </script>
         
