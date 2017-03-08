@@ -42,6 +42,7 @@
                                                             </div>
                                                             <div class="summary entry-summary single-product-info">
                                                                     <h1 class="product_title entry-title"><?= $producto->descripcion; ?></h1>
+                                                                    <small><strong>Codigo: </strong><?= $producto->codigo_fabricante; ?></small>
                                                                     <div class="bootexpert-product-rating">
                                                                             
                                                                     </div>
@@ -71,12 +72,13 @@
                                                                     
                                                                     
                                                                     
-                                                                    <form class="cart" method="post" enctype='multipart/form-data'>
+                                                                    <form class="cart" id="frmEnviarCarro" method="post">
                                                                             <div class="variations">
                                                                                     
                                                                             </div>									
                                                                             <div class="quantity">
                                                                                     <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
+                                                                                    <input type="hidden" name="codigo" value="<?= $producto->codigo_fabricante; ?>" />
                                                                             </div>
                                                                             <button type="submit" class="single_add_to_cart_button button alt">Cotizar</button>
                                                                     </form>

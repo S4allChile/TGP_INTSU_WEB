@@ -35,6 +35,38 @@
                 $('#<?= $marcaMenu; ?>').addClass('active-menu-item');
             }
             
+            $('#frmEnviarCarro').submit(function(e){
+                e.preventDefault();
+                var data = $(this).serialize();
+                
+                $.ajax({
+                        data:  data,
+                        url:   '../../cotizacion/add_producto',
+                        type:  'post',
+                        beforeSend: function () {
+
+                        },
+                        success:  function (result) {
+                            
+                            if(result == 1){
+                                
+                                alert('Registro Agregado');
+ 
+                            }
+                            else{
+                                alert('Error con la base de datos');
+                            }
+
+                        },
+                        error: function(error){
+                            alert('error en ajax'+error);
+                        }
+                });
+                
+                
+            });
+            
+            
             
             
             

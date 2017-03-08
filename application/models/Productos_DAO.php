@@ -18,12 +18,14 @@ class Productos_DAO extends CI_Model {
     }
     
     public function listaProductos(){
+        
         $this->db->SELECT('*');
         $this->db->FROM('producto_completa');
         $sql = $this->db->get();
         
         return $sql->result();
     }
+   
     
     public function listaCategoria(){
         $this->db->SELECT('*');
@@ -42,4 +44,25 @@ class Productos_DAO extends CI_Model {
         
         return $sql->result();
     }
+    
+    /**
+     * @name listaProductoXcod
+     * 
+     * Lista un producto segun el codigo ingresado
+     * 
+     * @param String $codigo
+     * @return array
+     */
+    public function listaProductoXcod($codigo){
+        
+        $this->db->SELECT('*');
+        $this->db->FROM('producto');
+        $this->db->WHERE('codigo_fabricante',$codigo);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+        
+    }
+    
+    
 }
