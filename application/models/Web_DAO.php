@@ -165,4 +165,14 @@ class Web_DAO extends CI_Model {
         
     }
     
+    public function buscaImagenCarro($codigoFacbricante){
+        $this->db->SELECT('nombre_archivo');
+        $this->db->FROM('producto_imagen_principal');
+        $this->db->WHERE('codigo_fabricante',$codigoFacbricante);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+        
+    }
+    
 }

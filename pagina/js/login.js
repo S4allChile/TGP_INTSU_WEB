@@ -37,7 +37,28 @@ $(window, document, undefined).ready(function() {
         e.preventDefault();
         var data = $(this).serialize();
         
-        alert(data);
+        $.ajax({
+            data: data,
+            url: 'ajax/validaLogin',
+            type: 'post',
+            beforeSend: function () {
+                
+            },
+            success: function (result) {
+                
+                if(result == 1){
+                    location.replace('index.php/administracion');
+                }else{
+                    
+                    alert('usuario o contraseña no corresponden');
+                    
+                }
+                
+            },
+            error: function (error) {
+                alert('error en ajax' + error);
+            }
+        });
         
     });
 

@@ -48,14 +48,7 @@
                         },
                         success:  function (result) {
                             
-                            if(result == 1){
-                                
-                                alert('Registro Agregado');
- 
-                            }
-                            else{
-                                alert('Error con la base de datos');
-                            }
+                            alert(result);
 
                         },
                         error: function(error){

@@ -19,14 +19,23 @@ class Administracion extends CI_Controller {
     
     public function index(){
         
-       // if($this->session->userdata('idUsr')){
+       if($this->session->userdata('idUsr')){
+           
             $this->load->view('admin/template/head');
             $this->load->view('admin/template/menu');
             $this->load->view('admin/escritorio');
-       // }
-       // else{
-       //     redirect('admin');
-        //}
+        }
+        else{
+            
+           redirect('admin');
+        }
         
+    }
+    
+    public function salir(){
+        
+        session_destroy();
+        
+        redirect('admin');
     }
 }

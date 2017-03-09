@@ -19,21 +19,21 @@ class Productos extends CI_Controller {
     }
     
     public function index(){
-        // if($this->session->userdata('idUsr')){
+        if($this->session->userdata('idUsr')){
             $this->load->view('admin/template/head');
             $this->load->view('admin/template/menu');
             $datos = array(
                 'productos' => $this->productos_DAO->listaProductos()
             );
             $this->load->view('admin/productos',$datos);
-       // }
-       // else{
-       //     redirect('admin');
-        //}
+        }
+        else{
+            redirect('admin');
+        }
     }
     
     public function nuevoProducto(){
-        // if($this->session->userdata('idUsr')){
+         if($this->session->userdata('idUsr')){
             $this->load->view('admin/template/head');
             $this->load->view('admin/template/menu');
             $datos = array(
@@ -41,10 +41,10 @@ class Productos extends CI_Controller {
                 'categorias' => $this->productos_DAO->listaCategoria()
             );
             $this->load->view('admin/nuevoProducto',$datos);
-       // }
-       // else{
-       //     redirect('admin');
-        //}
+        }
+        else{
+            redirect('admin');
+        }
         
         
     }

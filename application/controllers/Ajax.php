@@ -16,11 +16,13 @@ class Ajax extends CI_Controller {
     public function __construct() {
         parent::__construct();
         
-        $this->load->model('productos_DAO');
+        
     }
     
     
     public function cargaSubCategoria(){
+        
+        $this->load->model('productos_DAO');
         //Capturo la variable
         $idCategoria = $this->input->get('id');
         $valores = $this->productos_DAO->listaSubCategoria($idCategoria);
@@ -36,5 +38,39 @@ class Ajax extends CI_Controller {
                 echo '<option value="'.$valor->id_sub_categoria.'">'.$valor->nombre_sub_categoria.'</option>';
             }
         }
+    }
+    
+    public function validaLogin(){
+        $this->load->model('admin_DAO');
+        //Capturo las variables
+        $usuario = $this->input->post('user');
+        $pass = $this->input->post('pass');
+        
+        //encripto la contraseña
+        $pass = sha1($pass);
+        //pasamos el usuario a minusculas
+        $user = strtolower($usuario);
+        
+        $validar = $this->admin_DAO->validarUsuario($user,$pass);
+        if(empty($validar)){
+            
+            echo '0';
+        }else{
+            
+            $valores = array(
+                'idUsr' => $validar->id_usuario,
+                'nomUsr' => $validar->nombre_usuario." ".$validar->apellido_usuario
+            );
+            $this->session->set_userdata($valores);
+            
+            echo '1';
+            
+        }
+        
+        
+        
+        
+        
+        
     }
 }

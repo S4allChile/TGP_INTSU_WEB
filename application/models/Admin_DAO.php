@@ -26,4 +26,14 @@ class Admin_DAO extends CI_Model {
         
         
     }
+    
+    public function validarUsuario($user,$pass){
+        $this->db->SELECT('*');
+        $this->db->FROM('usuario');
+        $this->db->WHERE('usuario',$user);
+        $this->db->WHERE('pass',$pass);
+        $sql = $this->db->get();
+        
+        return $sql->row();
+    }
 }

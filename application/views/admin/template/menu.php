@@ -23,6 +23,8 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                      <li><a href="#">Usuarios</a></li>
+                      <li role="separator" class="divider"></li>
                       <li><a href="#">Caregorias</a></li>
                       <li><a href="#">Sub Categorias</a></li>
                       <li><a href="<?= base_url(); ?>productos">Productos</a></li>
@@ -40,9 +42,9 @@
                 <ul class="nav navbar-nav navbar-right">
   
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->session->nomUsr; ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Salir</a></li>
+                      <li><a href="<?= base_url(); ?>administracion/salir">Salir</a></li>
                     </ul>
                   </li>
                 </ul>

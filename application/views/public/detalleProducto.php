@@ -77,7 +77,7 @@
                                                                                     
                                                                             </div>									
                                                                             <div class="quantity">
-                                                                                    <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
+                                                                                    <input type="number" name="cantidad" value="1" title="Qty" class="input-text qty text" size="4" />
                                                                                     <input type="hidden" name="codigo" value="<?= $producto->codigo_fabricante; ?>" />
                                                                             </div>
                                                                             <button type="submit" class="single_add_to_cart_button button alt">Cotizar</button>

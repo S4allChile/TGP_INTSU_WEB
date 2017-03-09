@@ -19,7 +19,7 @@ class Cotizacion extends CI_Controller {
         $this->load->model('productos_DAO');
     }
 
-    public function index() {
+public function index() {
 
         $this->load->view('nombreVista');
     }
@@ -31,22 +31,24 @@ class Cotizacion extends CI_Controller {
         $cantidad = $this->input->post('cantidad');
         
         //Busco los datos del producto
-        $prducto = $this->productos_DAO->listaProductoXcod($codigo);
+        $producto = $this->productos_DAO->listaProductoXcod($codigo);
         
         $data = array(
-        'id'      => $producto->codigo_fabricante,
-        'qty'     => $cantidad,
-        'price'   => $producto->precio_venta,
-        'name'    => $producto->descripcion
-);
+            'id'      => $producto->codigo_fabricante,
+            'qty'     => $cantidad,
+            'price'   => $producto->precio_venta,
+            'name'    => $producto->descripcion
+        );
 
 $carro = $this->cart->insert($data);
 
-if(empty($carro)){
-    echo 0;
-}else{
-    echo 1;
-}
+echo $carro;
+//
+//if(empty($carro)){
+//    echo 0;
+//}else{
+//    echo 1;
+//}
 
         
         
