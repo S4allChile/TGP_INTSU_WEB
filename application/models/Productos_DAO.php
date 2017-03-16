@@ -57,11 +57,38 @@ class Productos_DAO extends CI_Model {
         
         $this->db->SELECT('*');
         $this->db->FROM('producto');
-        $this->db->WHERE('codigo_fabricante',$codigo);
+        $this->db->WHERE('codigo_producto',$codigo);
         $sql = $this->db->get();
         
         return $sql->row();
         
+    }
+    
+    public function ultimoId(){
+        
+        $this->db->select_max('id_producto');
+        $query = $this->db->get('producto');
+        
+        return $query->row();
+    }
+    
+    public function createProducto($datos){
+        
+        if($this->db->insert('producto',$datos)>0){
+            return $this->db->insert_id();
+        }else{
+            return 0;
+        }
+        
+    }
+    
+    public function createImagen($datos){
+        
+        if($this->db->insert('imagen_producto',$datos)>0){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
     }
     
     

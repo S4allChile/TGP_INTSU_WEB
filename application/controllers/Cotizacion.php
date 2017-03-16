@@ -34,7 +34,7 @@ public function index() {
         $producto = $this->productos_DAO->listaProductoXcod($codigo);
         
         $data = array(
-            'id'      => $producto->codigo_fabricante,
+            'id'      => $producto->codigo_producto,
             'qty'     => $cantidad,
             'price'   => $producto->precio_venta,
             'name'    => $producto->descripcion

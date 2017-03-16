@@ -42,7 +42,7 @@
                                                             </div>
                                                             <div class="summary entry-summary single-product-info">
                                                                     <h1 class="product_title entry-title"><?= $producto->descripcion; ?></h1>
-                                                                    <small><strong>Codigo: </strong><?= $producto->codigo_fabricante; ?></small>
+                                                                    <small><strong>Codigo: </strong><?= $producto->codigo_producto; ?></small>
                                                                     <div class="bootexpert-product-rating">
                                                                             
                                                                     </div>
@@ -78,7 +78,7 @@
                                                                             </div>									
                                                                             <div class="quantity">
                                                                                     <input type="number" name="cantidad" value="1" title="Qty" class="input-text qty text" size="4" />
-                                                                                    <input type="hidden" name="codigo" value="<?= $producto->codigo_fabricante; ?>" />
+                                                                                    <input type="hidden" name="codigo" value="<?= $producto->codigo_producto; ?>" />
                                                                             </div>
                                                                             <button type="submit" class="single_add_to_cart_button button alt">Cotizar</button>
                                                                     </form>
